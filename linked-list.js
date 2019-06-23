@@ -34,4 +34,28 @@ class LinkedList {
             current.next = newNode;            
         }
     }
+  
+    get(index) {
+    
+        // ensure `index` is a positive value
+        if (index > -1) {
+
+            // the pointer to use for traversal
+            let current = this[head];
+
+            // used to keep track of where in the list you are
+            let i = 0;
+
+            // traverse the list until you reach either the end or the index
+            while ((current !== null) && (i < index)) {
+                current = current.next;
+                i++;          
+            }
+        
+            // return the data if `current` isn't null
+            return current !== null ? current.data : undefined;
+        } else {
+            return undefined;
+        }
+    }
 }
